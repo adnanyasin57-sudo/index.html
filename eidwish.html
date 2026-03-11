@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eid Mubarak Wish Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Noto Nastaliq Urdu', serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+background:#ffffff10;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+input{
+width:90%;
+padding:12px;
+font-size:18px;
+border-radius:8px;
+border:none;
+margin-top:15px;
+text-align:center;
+}
+
+button{
+margin-top:15px;
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#ffd700;
+color:black;
+cursor:pointer;
+}
+
+button:hover{
+background:#ffc400;
+}
+
+.card{
+margin-top:25px;
+padding:25px;
+border-radius:12px;
+background:linear-gradient(135deg,#0f9b0f,#00c853);
+color:white;
+display:none;
+}
+
+.card h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.dua{
+font-size:20px;
+line-height:1.8;
+}
+
+.share-btn{
+background:#25D366;
+color:white;
+padding:12px 20px;
+margin-top:20px;
+display:inline-block;
+border-radius:8px;
+text-decoration:none;
+font-size:18px;
+}
+
+.share-btn:hover{
+background:#1ebe5d;
+}
+
+.footer{
+margin-top:30px;
+font-size:14px;
+opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌙 عید مبارک کارڈ بنائیں</h1>
+
+<p>اپنا نام لکھیں اور خوبصورت عید مبارک کارڈ بنائیں</p>
+
+<input type="text" id="name" placeholder="اپنا نام لکھیں">
+
+<br>
+
+<button onclick="generateCard()">کارڈ بنائیں</button>
+
+<div class="card" id="card">
+
+<h2>عید مبارک</h2>
+
+<div class="dua">
+
+اللہ تعالیٰ آپ کو اور آپ کے گھر والوں کو  
+صحت، خوشی اور کامیابیوں سے نوازے۔  
+
+یہ عید آپ کی زندگی میں  
+ڈھیروں خوشیاں اور برکتیں لائے۔  
+
+آمین 🤲
+
+</div>
+
+<h3 id="username"></h3>
+
+<a id="shareBtn" class="share-btn" target="_blank">
+📲 خاندان اور دوستوں کو بھیجیں
+</a>
+
+</div>
+
+<div class="footer">
+اپنا نام لکھ کر عید کا پیغام دوستوں کو بھیجیں
+</div>
+
+</div>
+
+<script>
+
+function generateCard(){
+
+let name = document.getElementById("name").value;
+
+if(name==""){
+alert("براہ کرم اپنا نام لکھیں");
+return;
+}
+
+document.getElementById("card").style.display="block";
+
+document.getElementById("username").innerHTML = "آپ کی طرف سے: " + name;
+
+let message = "🌙 عید مبارک!\n\n" +
+name + " نے آپ کے لئے ایک خوبصورت عید کارڈ بھیجا ہے۔\n\n" +
+"یہاں دیکھیں:\n" +
+window.location.href;
+
+let whatsappLink =
+"https://wa.me/?text=" + encodeURIComponent(message);
+
+document.getElementById("shareBtn").href = whatsappLink;
+
+}
+
+</script>
+
+</body>
+</html>
